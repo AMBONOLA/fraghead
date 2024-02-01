@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+nav {
+  background-color: #333;
+  color: #fbc59b;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav span {
+  cursor: pointer;
+  padding: 10px;
+}
+
+nav span:hover {
+  background-color: #555;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.background-image {
+  background-image: url("https://images01.nicepage.com/a1389d7bc73adea1e1c1fb7e/1589acb4326c5193b4ce01d2/pexels-photo-2834934.jpeg");
+  background-position: 50% 50%;
+  background-size: cover;
+  height: calc(100vh - 140px);
+}
+
+footer {
+  background-color: #333;
+  color: #fbc59b;
+  padding: 15px;
+  text-align: center;
+  height: 140px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 180px;
+}
+
+.search-bar input {
+  padding: 5px;
+}
