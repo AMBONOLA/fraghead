@@ -6,7 +6,6 @@ body {
 nav {
   background-color: #333;
   color: #fbc59b;
-
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -37,17 +36,72 @@ nav span:hover {
 footer {
   background-color: #333;
   color: #fbc59b;
-  padding: 15px;
   text-align: center;
   height: 140px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .search-bar {
   display: flex;
   align-items: center;
-  margin-left: 180px;
+  margin-left: 5%;
 }
 
 .search-bar input {
   padding: 5px;
+}
+
+.overlay-box {
+  background-color: #fbc59b;
+  color: #fff;
+  position: absolute;
+  top: auto;
+  bottom: 7%;
+  left: 30%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 35%;
+  height: auto;
+  max-height: 45vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5%;
+  box-sizing: border-box;
+  margin-bottom: 0.35%;
+  overflow: hidden;
+}
+
+.overlay-box h1 {
+  font-weight: 700;
+  font-size: 6em;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+}
+
+.row {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .overlay-box {
+    left: 5%;
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .overlay-box h1 {
+    font-size: 2em;
+  }
 }
