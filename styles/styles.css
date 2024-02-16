@@ -7,17 +7,40 @@ nav {
   background-color: #333;
   color: #fbc59b;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  padding: 20px;
 }
 
-nav span {
+nav a {
   cursor: pointer;
   padding: 10px;
+  color: #fbc59b;
+  text-decoration: none;
 }
 
-nav span:hover {
+nav a:hover {
   background-color: #555;
+}
+
+nav .brand {
+  color: #fbc59b;
+  font-size: 1.2rem;
+  margin-left: auto;
+  text-decoration: none;
+}
+
+nav .brand:hover {
+  color: #ffd699;
+}
+
+nav .search-bar {
+  flex-grow: 1;
+  text-align: center;
+}
+
+nav .search-bar input {
+  padding: 5x;
 }
 
 .container {
@@ -35,31 +58,9 @@ nav span:hover {
 
 footer {
   background-color: #333;
-  color: #fbc59b;
+  color: #fff;
+  padding: 20px 0;
   text-align: center;
-  height: 80px;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer p {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  margin-left: 5%;
-}
-
-.search-bar input {
-  padding: 5px;
 }
 
 .overlay-box {
