@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  overflow: hidden;
 }
 
 nav {
@@ -164,4 +163,26 @@ footer p {
 .featured-products-link:hover {
   background-color: #ffd699;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+}
+
+.product h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
 }
