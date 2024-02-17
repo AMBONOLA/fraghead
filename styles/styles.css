@@ -218,7 +218,8 @@ footer p {
 }
 
 .add-to-cart-btn {
-  padding: 10px 20px;
+  text-decoration: none;
+  padding: 10px 55px;
   background-color: #fbc59b;
   color: #333;
   border: none;
