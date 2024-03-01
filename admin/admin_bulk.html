@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin- Bulk Upload</title>
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/admin.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       rel="stylesheet"
@@ -21,16 +22,38 @@
   </head>
   <body>
     <nav>
-      <a href="index.html" class="brand">Sofi's Scents</a>
+      <a href="../index.html" class="brand">Sofi's Scents</a>
       <div class="search-bar">
         <input type="text" placeholder="Search" />
         <button><i class="fas fa-search"></i></button>
       </div>
 
+      <span>Hello, Admin!</span>
       <a href="#"><i class="fas fa-heart"></i></a>
       <a href="#"><i class="fas fa-user"></i></a>
       <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+      <a href="../index.html"><i class="fas fa-sign-out-alt"></i></a>
     </nav>
+
+    <section>
+      <div class="upload-section">
+        <h2>Bulk Product Upload</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+          <div class="file-upload">
+            <input
+              type="file"
+              name="bulk_product_file"
+              id="bulk_product_file"
+              accept=".json, .csv, .txt"
+            />
+          </div>
+          <div>
+            <p>The following formats are allowed: JSON, CSV, or TXT format</p>
+          </div>
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+    </section>
 
     <footer>
       <p>Sofi's 100% Authentic Fragrance Samples Copyright © 2024</p>

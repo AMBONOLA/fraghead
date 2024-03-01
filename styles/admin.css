@@ -1,0 +1,39 @@
+.upload-section {
+  background-color: #f0f0f0;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-section h2 {
+  color: #333;
+}
+
+.upload-section input[type="file"] {
+  margin-top: 10px;
+}
+
+.upload-section button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.upload-section button:hover {
+  background-color: #0056b3;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
