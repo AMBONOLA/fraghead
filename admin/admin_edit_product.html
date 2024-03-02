@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Scent for every occasion</title>
     <link rel="stylesheet" type="text/css" href="../styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/admin.css" />
 
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -22,16 +23,66 @@
   </head>
   <body>
     <nav>
-      <a href="index.html" class="brand">Sofi's Scents</a>
+      <a href="../index.html" class="brand">Sofi's Scents</a>
       <div class="search-bar">
         <input type="text" placeholder="Search" />
         <button><i class="fas fa-search"></i></button>
       </div>
 
+      <span>Hello, Admin!</span>
       <a href="#"><i class="fas fa-heart"></i></a>
       <a href="#"><i class="fas fa-user"></i></a>
       <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+      <a href="../index.html"><i class="fas fa-sign-out-alt"></i></a>
     </nav>
+
+    <nav class="admin-dash">
+      <ul>
+        <li><a href="./admin_bulk.html">Bulk Data Load</a></li>
+        <li><a href="./admin_edit_product.html">Edit Product</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Customers</a></li>
+        <li><a href="#">Settings</a></li>
+        <li>
+          <a href="../index.html"
+            >Sign Out <i class="fas fa-sign-out-alt"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+
+    <section>
+      <form action="#" method="post">
+        <label for="product">Select or Add Product:</label>
+        <select id="product" name="product">
+          <option value="new">Add New Product</option>
+        </select>
+        <div>
+          <label for="name"> Product Name: </label>
+          <input type="text" id="product_name" name="product_name" required />
+        </div>
+        <div>
+          <label for="category"> Category: </label>
+          <input type="text" id="category" name="category" required />
+        </div>
+        <div>
+          <label for="image"> Image: </label>
+          <input type="file" id="image" name="image" required />
+        </div>
+        <div>
+          <label for="price">Price:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            min="0"
+            step="0.01"
+            required
+          />
+        </div>
+        <button type="submit">Save Changes</button>
+      </form>
+    </section>
 
     <footer>
       <p>Sofi's 100% Authentic Fragrance Samples Copyright © 2024</p>
