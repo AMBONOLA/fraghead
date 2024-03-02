@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Scent for every occasion</title>
+    <title>Admin - Edit Product</title>
     <link rel="stylesheet" type="text/css" href="../styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="../styles/admin.css" />
 
@@ -52,18 +52,38 @@
     </nav>
 
     <section>
-      <form action="#" method="post">
-        <label for="product">Select or Add Product:</label>
+      <form action="#" method="post" class="product-form">
+        <h2>Edit Product</h2>
+        <label for="product">Select ID:</label>
         <select id="product" name="product">
-          <option value="new">Add New Product</option>
+          <option value=""></option>
+          <option value="YSL001">#YSL001</option>
+          <option value="YSL002">#YSL002</option>
+          <option value="YSL003">#YSL003</option>
+          <option value="DIO001">#DIO001</option>
+          <option value="DIO002">#DIO002</option>
+          <option value="DIO003">#DIO003</option>
         </select>
         <div>
           <label for="name"> Product Name: </label>
           <input type="text" id="product_name" name="product_name" required />
         </div>
         <div>
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <div>
           <label for="category"> Category: </label>
-          <input type="text" id="category" name="category" required />
+          <select id="category" name="category">
+            <option value="perfume">Perfume</option>
+            <option value="oil">Oil</option>
+            <option value="powder">Powder</option>
+          </select>
         </div>
         <div>
           <label for="image"> Image: </label>
