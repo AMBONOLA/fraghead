@@ -18,7 +18,7 @@ const SERVER_ERROR_MSG = 'Something went wrong on the server.';
 */
 async function getDBConnection() {
   const db = await sqlite.open({
-    filename: 'demo.db',
+    filename: '',
     driver: sqlite3.Database
   });
   return db;
