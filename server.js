@@ -18,7 +18,7 @@ const SERVER_ERROR = 500;
 const SERVER_ERROR_MSG = 'Something went wrong on the server.';
 
 //Import Route files
-import { userRoutes } from './routes/userRoutes';
+const { router: userRoutes } = require('./routes/userRoutes');
 
 
 //routes 

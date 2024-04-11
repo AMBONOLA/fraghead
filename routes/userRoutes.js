@@ -1,4 +1,4 @@
-import { getAllUsers, getUserById } from '../controllers/userController';
+const { getAllUsers, getUserById } = require('../controllers/userController');
 const router = require("express").Router();
 
 
