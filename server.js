@@ -17,6 +17,14 @@ const INVALID_PARAM_ERROR = 400;
 const SERVER_ERROR = 500;
 const SERVER_ERROR_MSG = 'Something went wrong on the server.';
 
+//Import Route files
+import { userRoutes } from './routes/userRoutes';
+
+
+//routes 
+app.use(userRoutes);
+
+
 //to read sql files
 function readSQLFile(fileName) {
   return fs.readFileSync(fileName, 'utf-8');
