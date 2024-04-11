@@ -1,11 +1,12 @@
 'use strict';
 const express = require('express');
 const app = express();
-const path=require("path");
-const sqlite3 = require('sqlite3');
-const sqlite = require('sqlite');
+const path = require("path");
+const { getDBConnection } = require('./models/db-connection');
 const fs = require('fs');
 const multer = require('multer');
+
+//middleware
 app.use(multer().none());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -19,20 +20,6 @@ const SERVER_ERROR_MSG = 'Something went wrong on the server.';
 //to read sql files
 function readSQLFile(fileName) {
   return fs.readFileSync(fileName, 'utf-8');
-}
-
-/**
-* Establishes a database connection to a database and returns the database object.
-* Any errors that occur during connection should be caught in the function
-* that calls this one.
-* @returns {Object} - The database object for the connection.
-*/
-async function getDBConnection() {
-  const db = await sqlite.open({
-    filename: './.data/SofiScent.db',
-    driver: sqlite3.Database
-  });
-  return db;
 }
 
 //where we actually execute
@@ -49,28 +36,42 @@ async function executeSQLStatements(sqlStatements) {
   }
 }
 
-//read create_tables.sql
-async function createDatabase() {
-  const createSQL = readSQLFile('./database/create_tables.sql');
-  const sqlStatements = createSQL.split(';').filter(sql => sql.trim()); // Split statements
-  await executeSQLStatements(sqlStatements);
-}
-
-//read dro_tables
-async function dropDatabase() {
-  const dropSQL = readSQLFile('./database/drop_tables.sql');
-  const sqlStatements = dropSQL.split(';').filter(sql => sql.trim()); // Split statements
-  await executeSQLStatements(sqlStatements);
-}
-
-
-app.listen(PORT, async () => {
-  console.log(`Server is running on port ${PORT}`);
+async function initializeDatabase() {
   try {
-    // await dropDatabase() //in case we want to drop first
-    // await createDatabase();
-    console.log('pretend it connects to db')
+    const createSQL = fs.readFileSync('./database/create_tables.sql', 'utf-8');
+    const createStatements = createSQL.split(';').filter(sql => sql.trim());
+    await executeSQLStatements(createStatements);
+    console.log('Database tables created successfully');
   } catch (error) {
-    console.error('Error creating database:', error);
+    console.error('Error creating database tables:', error);
   }
-});
+}
+
+async function dropDatabase() {
+  try {
+    const dropSQL = fs.readFileSync('./database/drop_tables.sql', 'utf-8');
+    const dropStatements = dropSQL.split(';').filter(sql => sql.trim());
+    await executeSQLStatements(dropStatements);
+    console.log('Database tables dropped successfully');
+  } catch (error) {
+    console.error('Error dropping database tables:', error);
+  }
+}
+
+//start server and connect to db
+async function startServer() {
+  try {
+    // await dropDatabase(); 
+    // await initializeDatabase(); 
+    // console.log('Database setup completed');
+    console.log('pretend this connects to db')
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('Error initializing database:', error);
+  }
+}
+
+startServer();
