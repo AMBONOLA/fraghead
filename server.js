@@ -10,7 +10,11 @@ const multer = require('multer');
 app.use(multer().none());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 const PORT = process.env.PORT || 8000;
 const INVALID_PARAM_ERROR = 400;
@@ -19,10 +23,15 @@ const SERVER_ERROR_MSG = 'Something went wrong on the server.';
 
 //Import Route files
 const { router: userRoutes } = require('./routes/userRoutes');
+const { router: cartRoutes } = require('./routes/cartRoutes');
 
 
-//routes 
+//routes
+app.get("/", (req, res) => {
+  res.render('index');
+});
 app.use(userRoutes);
+app.use(cartRoutes);
 
 
 //to read sql files
