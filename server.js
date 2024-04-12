@@ -24,6 +24,7 @@ const SERVER_ERROR_MSG = 'Something went wrong on the server.';
 //Import Route files
 const { router: userRoutes } = require('./routes/userRoutes');
 const { router: cartRoutes } = require('./routes/cartRoutes');
+const { router: productRoutes } = require('./routes/productRoutes');
 
 
 //routes
@@ -32,6 +33,7 @@ app.get("/", (req, res) => {
 });
 app.use(userRoutes);
 app.use(cartRoutes);
+app.use(productRoutes);
 
 
 //to read sql files

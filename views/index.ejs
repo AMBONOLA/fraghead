@@ -21,18 +21,7 @@
     />
   </head>
   <body>
-    <nav>
-      <a href="/" class="brand">Sofi's Scents</a>
-      <div class="search-bar">
-        <input type="text" placeholder="Search" />
-        <button><i class="fas fa-search"></i></button>
-      </div>
-
-      <a href="#" title="Favorites"><i class="fas fa-heart"></i></a>
-      <a href="#" title="User"><i class="fas fa-user"></i></a>
-      <a href="/cart" title="Shopping Cart"><i class="fas fa-shopping-cart"></i></a>
-      <a href="#" title="Sign In"><i class="fas fa-sign-in-alt"></i></a>
-    </nav>
+  <%- include('./partials/header') %>
 
     <section class="background-image">
       <div class="row">
@@ -41,14 +30,11 @@
             <h1>Niche Designer Scents</h1>
           </div>
         </div>
-        <a href="../public/products.html" class="featured-products-link"
+        <a href="/product-list" class="featured-products-link"
           >Shop All Fragrances</a
         >
       </div>
     </section>
-
-    <footer>
-      <p>Sofi's 100% Authentic Fragrance Samples Copyright © 2024</p>
-    </footer>
+  <%- include('./partials/footer') %>
   </body>
 </html>
