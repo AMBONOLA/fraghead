@@ -23,6 +23,8 @@ CREATE TABLE IF NOT EXISTS Products (
     image_url TEXT,
     price DECIMAL(10, 2) NOT NULL,
     category_id INTEGER,
+    main_accords TEXT, 
+    best_for TEXT,     
     FOREIGN KEY (category_id) REFERENCES Categories(category_id)
 );
 

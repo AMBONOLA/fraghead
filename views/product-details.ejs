@@ -20,7 +20,7 @@
     />
   </head>
   <body>
-  <%- include('./partials/header') %>
+    <%- include('./partials/header') %>
 
     <section>
       <div class="container">
@@ -34,9 +34,19 @@
               <p><%= productDetail.description %></p>
               <p>2 oz</p>
               <p>Price: $<%= productDetail.price %></p>
+              <hr />
+              <p>Main Accords</p>
               <ul>
-                <li>Main Accords: Woody, aldehydic, fresh, white floral</li>
-                <li>Best to wear for: Winter, spring, fall, day/night</li>
+                <% productDetail.main_accords.split(',').forEach(accord => { %>
+                <li><%= accord.trim() %></li>
+                <% }) %>
+              </ul>
+              <hr />
+              <p>Best for</p>
+              <ul>
+                <% productDetail.best_for.split(',').forEach(forItem => { %>
+                <li><%= forItem.trim() %></li>
+                <% }) %>
               </ul>
 
               <a href="/cart" class="add-to-cart-btn">Add to Cart</a>
@@ -47,6 +57,6 @@
         </div>
       </div>
     </section>
-  <%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>
   </body>
 </html>
