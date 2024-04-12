@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - Edit Product</title>
-    <link rel="stylesheet" type="text/css" href="../styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="../styles/admin.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/styles/admin.css" />
 
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -23,7 +23,7 @@
   </head>
   <body>
     <nav>
-      <a href="../../views/index.ejs" class="brand">Sofi's Scents</a>
+      <a href="../index.ejs" class="brand">Sofi's Scents</a>
       <div class="search-bar">
         <input type="text" placeholder="Search" />
         <button><i class="fas fa-search"></i></button>
@@ -33,18 +33,18 @@
       <a href="#"><i class="fas fa-heart"></i></a>
       <a href="#"><i class="fas fa-user"></i></a>
       <a href="../cart.htmltml"><i class="fas fa-shopping-cart"></i></a>
-      <a href="../../views/index.ejs"><i class="fas fa-sign-out-alt"></i></a>
+      <a href="../index.ejs"><i class="fas fa-sign-out-alt"></i></a>
     </nav>
 
     <nav class="admin-dash">
       <ul>
-        <li><a href="admin_bulk.html">Bulk Data Load</a></li>
-        <li><a href="./admin_edit_product.html">Edit Product</a></li>
+        <li><a href="admin_bulk.ejs">Bulk Data Load</a></li>
+        <li><a href="views/admin/admin_edit_product.ejs">Edit Product</a></li>
         <li><a href="#">Orders</a></li>
         <li><a href="#">Customers</a></li>
         <li><a href="#">Settings</a></li>
         <li>
-          <a href="../../views/index.ejs"
+          <a href="../index.ejs"
             >Sign Out <i class="fas fa-sign-out-alt"></i
           ></a>
         </li>
@@ -103,9 +103,6 @@
         <button type="submit">Save Changes</button>
       </form>
     </section>
-
-    <footer>
-      <p>Sofi's 100% Authentic Fragrance Samples Copyright © 2024</p>
-    </footer>
+    <%- include('./partials/footer') %>
   </body>
 </html>

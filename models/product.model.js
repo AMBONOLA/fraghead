@@ -6,9 +6,8 @@ class ProductModel {
     this.name = name;
     this.description = description;
     this.price = price;
-    this.image_Url = image_url;
+    this.image_url = image_url;
     this.category_id = category_id;
-
   }
 }
 
