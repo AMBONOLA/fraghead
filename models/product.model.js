@@ -11,9 +11,11 @@ class ProductModel {
 
   }
 }
+
 async function getById(productId) {
   return [
-    { product_id: productId, name: "Product 1", description: "Description of Product 1", price: 10.99, category_id: 1 }
+    { product_id: productId, name: "Product 1", description: "Description of Product 1", price: 10.99,
+      image_url: "/images/placeholder-frag.jpg", category_id: 1 }
   ]
 }
 
@@ -43,4 +45,4 @@ async function getAll() {
       image_url: "/images/placeholder-frag2.jpg", category_id: 2 }
   ];
 }
-module.exports = {ProductModel, getAll};
+module.exports = {ProductModel, getAll, getById};
