@@ -48,7 +48,7 @@ async function executeSQLStatements(sqlStatements) {
     for (const sqlStatement of sqlStatements) {
       await db.exec(sqlStatement);
     }
-    console.log('SQL statements executed successfully!')
+    // console.log('SQL statements executed successfully!')
   } catch (error) {
     console.error('Error executing SQL statements: ', error)
 
@@ -57,10 +57,10 @@ async function executeSQLStatements(sqlStatements) {
 
 async function initializeDatabase() {
   try {
-    const createSQL = fs.readFileSync('./database/create_tables.sql', 'utf-8');
+    const createSQL = fs.readFileSync('./.data/create_tables.sql', 'utf-8');
     const createStatements = createSQL.split(';').filter(sql => sql.trim());
     await executeSQLStatements(createStatements);
-    console.log('Database tables created successfully');
+    // console.log('Database tables created successfully');
   } catch (error) {
     console.error('Error creating database tables:', error);
   }
@@ -68,10 +68,10 @@ async function initializeDatabase() {
 
 async function dropDatabase() {
   try {
-    const dropSQL = fs.readFileSync('./database/drop_tables.sql', 'utf-8');
+    const dropSQL = fs.readFileSync('./.data/drop_tables.sql', 'utf-8');
     const dropStatements = dropSQL.split(';').filter(sql => sql.trim());
     await executeSQLStatements(dropStatements);
-    console.log('Database tables dropped successfully');
+    // console.log('Database tables dropped successfully');
   } catch (error) {
     console.error('Error dropping database tables:', error);
   }
@@ -80,10 +80,9 @@ async function dropDatabase() {
 //start server and connect to db
 async function startServer() {
   try {
-    // await dropDatabase(); 
-    // await initializeDatabase(); 
-    // console.log('Database setup completed');
-    console.log('pretend this connects to db')
+    // await dropDatabase();
+    await initializeDatabase();
+    console.log('Database setup completed');
 
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);

@@ -9,8 +9,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans:200,300,400,700,800,900&amp;subset=latin"
-          rel="preload" as="font" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans:200,300,400,700,800,900&amp;subset=latin"
+      rel="preload"
+      as="font"
+      crossorigin
+    />
 
     <link
       rel="stylesheet"
@@ -18,31 +22,31 @@
     />
   </head>
   <body>
-  <%- include('./partials/header') %>
+    <%- include('./partials/header') %>
 
-  <section>
-    <div class="container">
-      <h2>Our Products</h2>
-      <div class="sorting-options">
-        <label for="sort">Sort by:</label>
-        <select id="sort">
-          <option value="name">Name</option>
-          <option value="price">Price</option>
-        </select>
-      </div>
-      <div class="products-container">
-        <% allProducts.forEach(product => { %>
+    <section>
+      <div class="container">
+        <h2>Our Products</h2>
+        <div class="sorting-options">
+          <label for="sort">Sort by:</label>
+          <select id="sort">
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+          </select>
+        </div>
+        <div class="products-container">
+          <% allProducts.forEach(product => { %>
           <div class="product">
-            <a href="/product-details/<%= product.product_id %>">
-            <img src="<%= product.image_url %>" alt="<%= product.name %>" />
+            <a href="/products/details/<%= product.product_id %>">
+              <img src="<%= product.image_url %>" alt="<%= product.name %>" />
               <h3><%= product.name %></h3>
               <p>$<%= product.price.toFixed(2) %></p>
             </a>
           </div>
-        <% }) %>
+          <% }) %>
+        </div>
       </div>
-    </div>
-  </section>
-  <%- include('./partials/footer') %>
+    </section>
+    <%- include('./partials/footer') %>
   </body>
 </html>
