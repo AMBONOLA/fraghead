@@ -6,20 +6,18 @@ class CartModel {
     this.user_id = user_id;
     this.created_at = created_at;
   }
-  static async createCart(cartId) {
+  static async createCart() {
     const db = await getDBConnection();
     try {
-      const existingCart = await db.get('SELECT * FROM Carts WHERE cart_id = ?', [cartId]);
-      if (!existingCart) {
-        await db.run('INSERT INTO Carts (cart_id) VALUES (?)', [cartId]);
-      }
+      const result = await db.run('INSERT INTO Carts DEFAULT VALUES');
+      return result.lastID;
     } catch (error) {
       console.error('Error creating cart:', error);
       throw error;
     } finally {
       await db.close();
     }
-  }
+  };
 
   static async addItemToCart(cartId, productId, quantity) {
     const db = await getDBConnection();

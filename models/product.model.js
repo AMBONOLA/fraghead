@@ -22,7 +22,6 @@ async function getAll() {
       best_for: JSON.parse(product.best_for)
     }));
 
-    console.log(parsedProducts)
     return parsedProducts;
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -40,9 +39,6 @@ async function addProduct(name, description, price, imageUrl, categoryId, mainAc
 
     const mainAccordsJSON = JSON.stringify(mainAccords);
     const bestForJSON = JSON.stringify(bestFor);
-
-    console.log("mainAccords after stringify:", mainAccordsJSON);
-    console.log("bestFor after stringify:", bestForJSON);
 
     const result = await db.run(
       `INSERT INTO products (name, description, price, image_url, category_id, main_accords, best_for) 
@@ -78,7 +74,6 @@ async function addMultipleProducts(products) {
     }
     await db.run('COMMIT');
 
-    console.log('Multiple products added successfully');
   } catch (error) {
     await db.run('ROLLBACK');
     console.error('Error inserting multiple products:', error);

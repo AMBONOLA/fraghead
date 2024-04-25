@@ -20,7 +20,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"
     />
-    <script src="../public/scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
   </head>
   <body>
     <%- include('./partials/header') %>
@@ -43,7 +43,7 @@
               <h3><%= product.name %></h3>
               <p>$<%= product.price.toFixed(2) %></p>
             </a>
-            <button class="add-to-cart-btn" data-productId="<%= product.productId %>">Add to Cart</button>
+            <button class="add-to-cart-btn" data-productid="<%= product.product_id %>">Add to Cart</button>
           </div>
           <% }) %>
         </div>

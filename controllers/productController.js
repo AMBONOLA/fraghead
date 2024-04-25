@@ -38,7 +38,6 @@ exports.newProduct = async (req, res) => {
 exports.addMultipleProducts = async (req, res) => {
 	try {
 		const products = req.body;
-		console.log(req.body)
 		await addMultipleProducts(products);
 		res.status(200).json({ message: 'Multiple products added successfully' });
 	} catch (error) {

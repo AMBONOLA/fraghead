@@ -8,8 +8,16 @@ exports.addItemToCart = async (req, res) => {
 	const { productId } = req.params;
 	const { cartId } = req.session;
 
+	console.log(req.params);
+	console.log(cartId);
+
 	try {
-		await addItemToCart(cartId, productId, 1);
+		if (!cartId) {
+			const newCartId = await createCart();
+			req.session.cartId = newCartId;
+		}
+
+		await addItemToCart(req.session.cartId, productId, 1);
 		res.status(200).send('Item added to cart successfully');
 	} catch (error) {
 		console.error('Error adding item to cart:', error);

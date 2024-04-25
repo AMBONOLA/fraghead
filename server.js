@@ -6,6 +6,7 @@ const { getDBConnection } = require('./models/db-connection');
 const fs = require('fs');
 const multer = require('multer');
 const session = require('express-session');
+const { v4: uuidv4 } = require('uuid');
 
 //middleware
 app.use(multer().none());
@@ -16,17 +17,24 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 const PORT = process.env.PORT || 8000;
 const INVALID_PARAM_ERROR = 400;
 const SERVER_ERROR = 500;
 const SERVER_ERROR_MSG = 'Something went wrong on the server.';
 
+app.use(session({
+  genid: function(req, res, next) {
+    return uuidv4(undefined, undefined, undefined);
+  },
+  secret: '7107b684f8093c3f31abdc61274f5a12740387dd7db611e1d81d523736487ecb',
+  resave: false,
+  saveUninitialized: true
+}));
+
 //Import Route files
 const { router: userRoutes } = require('./routes/userRoutes');
 const { router: cartRoutes } = require('./routes/cartRoutes');
 const { router: productRoutes } = require('./routes/productRoutes');
-
 
 //routes
 app.get("/", (req, res) => {
