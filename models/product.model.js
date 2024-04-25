@@ -88,8 +88,4 @@ async function addMultipleProducts(products) {
   }
 }
 
-
-
-
-
 module.exports = { getAll, getById, addProduct, addMultipleProducts };

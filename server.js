@@ -5,6 +5,7 @@ const path = require("path");
 const { getDBConnection } = require('./models/db-connection');
 const fs = require('fs');
 const multer = require('multer');
+const session = require('express-session');
 
 //middleware
 app.use(multer().none());
