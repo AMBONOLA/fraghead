@@ -9,8 +9,11 @@ class CartModel {
   static async createCart() {
     const db = await getDBConnection();
     try {
-      const result = await db.run('INSERT INTO Carts DEFAULT VALUES');
-      return result.lastID;
+      const currentTime = new Date().toISOString();
+      const result = await db.run('INSERT INTO Carts (user_id, created_at) VALUES (?, ?)', [1, currentTime]);
+      const cartId = result.lastID;
+
+      return cartId;
     } catch (error) {
       console.error('Error creating cart:', error);
       throw error;
@@ -62,14 +65,14 @@ class CartModel {
     }
   }
 
-  static async getById(cartId) {
+  static async getCartItems(cartId) {
     const db = await getDBConnection();
 
     try {
-      const cart = await db.get('SELECT * FROM Carts WHERE cart_id = ?', [cartId]);
-      return cart;
+      const cartItems = await db.all('SELECT * FROM CartProducts WHERE cart_id = ?', [cartId]);
+      return cartItems;
     } catch (error) {
-      console.error('Error fetching cart by ID:', error);
+      console.error('Error fetching cart items:', error);
       throw error;
     } finally {
       await db.close();

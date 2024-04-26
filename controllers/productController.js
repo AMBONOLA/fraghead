@@ -1,4 +1,4 @@
-const { getAll, getById, addProduct, addMultipleProducts } = require('../models/product.model');
+const { getAll, getProductById, addProduct, addMultipleProducts } = require('../models/product.model');
 
 exports.productPage = async (req, res) => {
 	try {
@@ -14,7 +14,7 @@ exports.productPage = async (req, res) => {
 exports.productDetail = async (req, res) => {
 	try {
 		const productId = req.params.product_id;
-		const productDetail = await getById(productId);
+		const productDetail = await getProductById(productId);
 		res.render('product-details', { productDetail: productDetail[0] });
 	} catch (error) {
 		console.error("Error fetching product details:", error);

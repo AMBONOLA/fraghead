@@ -1,13 +1,25 @@
 const { getDBConnection } = require('./db-connection');
 
-async function getById(productId) {
-  return [
-    {
-      product_id: productId, name: "Product 2", description: "Description of Product 1", price: 10.99,
-      image_url: "/images/placeholder-frag.jpg", category_id: 1, main_accords: 'woody, fresh, floral',
-      best_for: 'spring, summer '
+async function getProductById(productId) {
+  const db = await getDBConnection();
+
+  try {
+    const product = await db.get('SELECT * FROM Products WHERE product_id = ?', [productId]);
+    if (!product) {
+      return null;
     }
-  ]
+
+    return {
+      ...product,
+      main_accords: JSON.parse(product.main_accords),
+      best_for: JSON.parse(product.best_for)
+    };
+  } catch (error) {
+    console.error('Error fetching product by ID:', error);
+    throw error;
+  } finally {
+    await db.close();
+  }
 }
 
 
@@ -83,4 +95,4 @@ async function addMultipleProducts(products) {
   }
 }
 
-module.exports = { getAll, getById, addProduct, addMultipleProducts };
+module.exports = { getAll, getProductById, addProduct, addMultipleProducts };

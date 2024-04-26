@@ -28,7 +28,7 @@ app.use(session({
   },
   secret: '7107b684f8093c3f31abdc61274f5a12740387dd7db611e1d81d523736487ecb',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
 }));
 
 //Import Route files
