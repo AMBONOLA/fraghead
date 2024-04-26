@@ -11,14 +11,14 @@ class UserModel {
   }
 
 
-  static async getAll() {
+  static async getAllUsers() {
     return [
       { user_id: 1, name: "John Doe", email: "john@example.com", user_type: "regular" },
       { user_id: 2, name: "Jane Smith", email: "jane@example.com", user_type: "admin" }
     ];
   }
 
-  static async getById(userId) {
+  static async getUserById(userId) {
     return [
       { user_id: userId, name: "John Doe", email: "john@example.com", user_type: "regular" }
     ]

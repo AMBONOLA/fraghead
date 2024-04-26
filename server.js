@@ -26,7 +26,7 @@ app.use(session({
   genid: function(req, res, next) {
     return uuidv4(undefined, undefined, undefined);
   },
-  secret: '7107b684f8093c3f31abdc61274f5a12740387dd7db611e1d81d523736487ecb',
+  secret: 'some-secret',
   resave: false,
   saveUninitialized: true,
 }));
