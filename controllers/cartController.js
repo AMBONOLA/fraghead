@@ -1,12 +1,26 @@
 const { addItemToCart, createCart, getAll, getCartItems } = require('../models/cart.model');
 const {getProductById} = require("../models/product.model");
 
+
+//utility func
+function calculateTotalPrice(cartItems) {
+	let totalPrice = 0;
+
+	cartItems.forEach(item => {
+		totalPrice += item.product.price * item.quantity;
+	});
+
+	return totalPrice.toFixed(2);
+}
+
+
 exports.renderCartPage = async (req, res) => {
 	const { cartId } = req.session;
 	console.log(req.session);
 
 	try {
 		let cartItems = [];
+		let totalPrice = 0;
 		if (cartId) {
 			cartItems = await getCartItems(cartId);
 			const productIds = cartItems.map(item => item.product_id);
@@ -16,9 +30,10 @@ exports.renderCartPage = async (req, res) => {
 				...item,
 				product: products[index]
 			}));
+			totalPrice = calculateTotalPrice(cartItems);
 		}
 		console.log(cartItems)
-		res.render('cart', { cartItems });
+		res.render('cart', { cartItems, totalPrice });
 	} catch (error) {
 		console.error('Error fetching cart items:', error);
 		res.status(500).send('Internal Server Error');

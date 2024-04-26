@@ -21,7 +21,7 @@ function handleAddToCartButtonClick() {
 }
 
 function handleOtherAction() {
-	// Define event handling logic for other actions
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
